@@ -12,11 +12,13 @@ import (
 
 // SendingCredentials defines the information needed for sending an email
 type SendingCredentials struct {
-	From           string // The email address of the sender
-	To             string // The email address of the recipient
-	SenderPassword string // The email sender password
-	Subject        string // The subject line of the email
-	Template       string // The template content for the email body
+	From           string               // The email address of the sender
+	To             string               // The email address of the recipient
+	SenderPassword string               // The email sender password
+	Subject        string               // The subject line of the email
+	Template       string               // The template content for the email body
+	Cc             *string              // The carbon copy (optional)
+	Bcc            *map[string][]string // The blind carbon copy (optional)
 }
 
 // SendEmail sends an email using the provided credentials and data
@@ -72,6 +74,16 @@ func SendEmail(config *SMTPConfig, sc *SendingCredentials, data any, skipSecurit
 
 	// Set the email subject line
 	m.SetHeader("Subject", sc.Subject)
+
+	// Set carbon copy
+	if sc.Cc != nil {
+		m.SetHeader("Cc", *sc.Cc)
+	}
+
+	// Set blind carbon copy
+	if sc.Bcc != nil {
+		m.SetHeaders(*sc.Bcc)
+	}
 
 	// Set the email body as HTML content
 	m.SetBody("text/html", htmlBody.String())

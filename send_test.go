@@ -8,12 +8,19 @@ import (
 func TestSendingTemplate(t *testing.T) {
 	config := NewSMTPConfig()
 
+	Cc := "example@gmail.com"
+	Bcc := map[string][]string{
+		"Bcc": {"example@gmail.com"},
+	}
+
 	sc := &SendingCredentials{
-		From:           "ggdnicolas@gmail.com",
-		To:             "ggdnicolas@gmail.com",
-		SenderPassword: "qvpmuhxabbzpviwt",
+		From:           "yourgmail@gmail.com",
+		To:             "yourgmail@gmail.com",
+		SenderPassword: "your_password",
 		Subject:        "Gomail test subject",
 		Template:       "test.tmpl",
+		Cc:             &Cc,
+		Bcc:            &Bcc,
 	}
 
 	data := map[string]any{
