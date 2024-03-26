@@ -48,7 +48,8 @@ Here's an example of how to send an email using the SendEmail function:
     }
     
     // Send the email
-    err := ctlgmail.SendEmail(config, credentials, data)
+    // By default, gmail validates the server's TLS certificate, to avoid potential security issues due to invalid certificates, set 'false' during production.
+    err := ctlgmail.SendEmail(config, credentials, data, true)
     
     if err != nil {
         log.Printf("Error sending email: %v", err)
