@@ -10,7 +10,7 @@ go get github.com/systemctl/go-google-service
 
 ## Custom Mail Sending Function
 
-`go-google-service` includes a custom mail sending function to extend its functionality beyond the Google Docs API. You can utilize this function to send emails from your Go application with ease.
+This package provides a convenient way to send emails using customizable templates and SMTP credentials. It leverages the gomail library for email functionality.
 
 ## Sending credentials
 To send emails, you'll need to set up SendingCredentials which includes information like sender email, recipient email, password, subject, template path, and optional CC/BCC recipients.
@@ -21,10 +21,10 @@ Here's an example of how to send an email using the SendEmail function:
 ```go
     // Import required packages
     import (
-    "log"
-    
-    "github.com/gomail/gomail"
-    "your-username/email-sender" // Replace with your package import path
+        "log"
+        
+        "github.com/gomail/gomail"
+        "your-username/email-sender" // Replace with your package import path
     )
     
     // Configure SMTP settings (optional, defaults to Google SMTP)
