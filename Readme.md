@@ -67,6 +67,7 @@ Google Workspace quickstarts use the API client libraries to handle some details
 
 func main() {
         ctx := context.Background()
+        // your credentials.json file
         b, err := os.ReadFile("credentials.json")
         if err != nil {
                 log.Fatalf("Unable to read client secret file: %v", err)
