@@ -3,7 +3,7 @@ package ctlgmail
 import (
 	"context"
 	"github.com/stretchr/testify/assert"
-	"github.com/systemctl/go-google-service/mocks"
+	"github.com/syst3mctl/go-google-service/mocks"
 	"golang.org/x/oauth2"
 	"net/http"
 	"testing"
