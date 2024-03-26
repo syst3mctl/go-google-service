@@ -48,7 +48,7 @@ Here's an example of how to send an email using the SendEmail function:
     }
     
     // Send the email
-    err := mail.SendEmail(config, credentials, data)
+    err := ctlgmail.SendEmail(config, credentials, data)
     
     if err != nil {
         log.Printf("Error sending email: %v", err)
