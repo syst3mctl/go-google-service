@@ -1,4 +1,4 @@
-module github.com/systemctl/go-google-service
+module github.com/syst3mctl/go-google-service
 
 go 1.22.0
 
