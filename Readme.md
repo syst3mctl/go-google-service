@@ -57,6 +57,42 @@ Here's an example of how to send an email using the SendEmail function:
     }
 ```
 
+## Call  a Google Workspace API
+Google Workspace quickstarts use the API client libraries to handle some details of the authentication and authorization flow. more information: (https://developers.google.com/docs/api/quickstart/go)
+
+
+```go
+// Import required packages
+
+func main() {
+        ctx := context.Background()
+        b, err := os.ReadFile("credentials.json")
+        if err != nil {
+                log.Fatalf("Unable to read client secret file: %v", err)
+        }
+
+        // If modifying these scopes, delete your previously saved token.json.
+        config, err := google.ConfigFromJSON(b, "https://www.googleapis.com/auth/documents.readonly")
+        if err != nil {
+                log.Fatalf("Unable to parse client secret file to config: %v", err)
+        }
+        client := ctlgmail.GetClient(config)
+
+        srv, err := docs.NewService(ctx, option.WithHTTPClient(client))
+        if err != nil {
+                log.Fatalf("Unable to retrieve Docs client: %v", err)
+        }
+
+        // Prints the title of the requested doc:
+        // https://docs.google.com/document/d/195j9eDD3ccgjQRttHhJPymLJUCOUjs-jmwTrekvdjFE/edit
+        docId := "195j9eDD3ccgjQRttHhJPymLJUCOUjs-jmwTrekvdjFE"
+        doc, err := srv.Documents.Get(docId).Do()
+        if err != nil {
+                log.Fatalf("Unable to retrieve data from document: %v", err)
+        }
+        fmt.Printf("The title of the doc is: %s\n", doc.Title)
+}
+```
 
 ## Important Notes:
 - Replace placeholders in the SendingCredentials with your actual values.
