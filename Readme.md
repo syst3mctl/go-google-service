@@ -5,7 +5,7 @@ This Go package provides a convenient way to interact with Google APIs, leveragi
 ### Installation
 To use go-google-service in your Go project, you can install it via go get:
 ```bash
-go get github.com/systemctl/go-google-service
+go get github.com/syst3mctl/go-google-service
 ```
 
 ## Custom Mail Sending Function
