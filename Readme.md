@@ -58,6 +58,18 @@ Here's an example of how to send an email using the SendEmail function:
     }
 ```
 
+## Use populated data in email template
+Define `htmlBody` in start of `html` or `tmpl` as follow
+```html
+{{define "htmlBody"}}
+<!DOCTYPE html>
+<html>
+// rest of your html code
+</html>
+// close defined htmlBody
+{{end}}
+```
+
 ## Call  a Google Workspace API
 Google Workspace quickstarts use the API client libraries to handle some details of the authentication and authorization flow. more information: (https://developers.google.com/docs/api/quickstart/go)
 
