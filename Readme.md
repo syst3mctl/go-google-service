@@ -70,6 +70,12 @@ Define `htmlBody` in start of `html` or `tmpl` as follow
 {{end}}
 ```
 
+Use populated data inside html tags, in our case we define data(type of map), with key `Name`
+```html
+// example usage of defined data 
+<a>Example name: {{.Name}}</a>
+```
+It converts as follows: `Example name: John Doe` 
 ## Call  a Google Workspace API
 Google Workspace quickstarts use the API client libraries to handle some details of the authentication and authorization flow. more information: (https://developers.google.com/docs/api/quickstart/go)
 
