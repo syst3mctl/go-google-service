@@ -22,9 +22,7 @@ Here's an example of how to send an email using the SendEmail function:
     // Import required packages
     import (
         "log"
-        
-        "github.com/gomail/gomail"
-        "your-username/email-sender" // Replace with your package import path
+        "github.com/syst3mctl/go-google-service"
     )
     
     // Configure SMTP settings (optional, defaults to Google SMTP)
