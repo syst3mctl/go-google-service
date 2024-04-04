@@ -32,7 +32,7 @@ Here's an example of how to send an email using the SendEmail function:
     config := ctlgmail.NewSMTPConfig()
     
     // Set up sending credentials (replace placeholders with actual values)
-    credentials := &mail.SendingCredentials{
+    credentials := &ctlgmail.SendingCredentials{
         From:           "your_email@example.com",
         To:             "recipient@example.com",
         SenderPassword: "your_password", // **Important:**  Keep this secure!
