@@ -19,6 +19,8 @@ To send emails, you'll need to set up SendingCredentials which includes informat
 Here's an example of how to send an email using the SendEmail function:
 
 ```go
+    package main
+
     // Import required packages
     import (
         "log"
