@@ -29,33 +29,35 @@ Here's an example of how to send an email using the SendEmail function:
         "your-username/email-sender" // Replace with your package import path
     )
     
-    // Configure SMTP settings (optional, defaults to Google SMTP)
-    // To change SMTP configuration within your config, just call function WithSMTPConfig() and pass parameters
-    config := ctlgmail.NewSMTPConfig()
-    
-    // Set up sending credentials (replace placeholders with actual values)
-    credentials := &mail.SendingCredentials{
-        From:           "your_email@example.com",
-        To:             "recipient@example.com",
-        SenderPassword: "your_password", // **Important:**  Keep this secure!
-        Subject:        "Email Subject",
-        Template:       "path/to/your/template.html",
-        Cc:             nil, // Optional CC recipient (string)
-        Bcc:            nil, // Optional BCC recipients (map[string][]string)
-    }
-    
-    // Data to populate the email template (can be of any type)
-    data := map[string]string{
-        "Name": "John Doe",
-    }
-    
-    // Send the email
-    // By default, gmail validates the server's TLS certificate, to avoid potential security issues due to invalid certificates, set 'false' during production.
-    err := ctlgmail.SendEmail(config, credentials, data, true)
-    
-    if err != nil {
-        log.Printf("Error sending email: %v", err)
-    } else {
-        log.Println("Email sent successfully!")
+    func main() {
+            // Configure SMTP settings (optional, defaults to Google SMTP)
+            // To change SMTP configuration within your config, just call function WithSMTPConfig() and pass parameters
+            config := ctlgmail.NewSMTPConfig()
+            
+            // Set up sending credentials (replace placeholders with actual values)
+            credentials := &mail.SendingCredentials{
+                From:           "your_email@example.com",
+                To:             "recipient@example.com",
+                SenderPassword: "your_password", // **Important:**  Keep this secure!
+                Subject:        "Email Subject",
+                Template:       "path/to/your/template.html",
+                Cc:             nil, // Optional CC recipient (string)
+                Bcc:            nil, // Optional BCC recipients (map[string][]string)
+            }
+            
+            // Data to populate the email template (can be of any type)
+            data := map[string]string{
+                "Name": "John Doe",
+            }
+            
+            // Send the email
+            // By default, gmail validates the server's TLS certificate, to avoid potential security issues due to invalid certificates, set 'false' during production.
+            err := ctlgmail.SendEmail(config, credentials, data, true)
+            
+            if err != nil {
+                log.Printf("Error sending email: %v", err)
+            } else {
+                log.Println("Email sent successfully!")
+            }
     }
 ```
