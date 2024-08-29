@@ -1,6 +1,6 @@
 # go-google-service
 
-This Go package provides a convenient way to interact with Google APIs, leveraging the official Google API Client Library for Go (https://github.com/googleapis/google-api-go-client) and incorporating a custom mail sending functionality.
+This go package is focused to sending emails, have a possibilities to working with `templ` or `html` templates with defined tags
 
 ### Installation
 To use go-google-service in your Go project, you can install it via go get:
