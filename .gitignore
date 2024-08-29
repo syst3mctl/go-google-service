@@ -1,4 +1,4 @@
 .idea
-go.sum
+.vscode
 test.tmpl
 credentials.json
